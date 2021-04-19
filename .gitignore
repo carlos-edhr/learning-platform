@@ -1,2 +1,3 @@
 /educa/settings.py
 manage.py
+db.sqlite3
