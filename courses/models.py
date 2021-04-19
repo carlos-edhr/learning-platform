@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from django.contenttypes.models import ContentType 
+from django.contenttypes.fields import GenericForeignKey
 
 class Subject(models.Model):
     title = models.CharField(max_length=200)
@@ -38,4 +40,22 @@ class Module(models.Model):
 
     def __str__(self):
         return self.title 
+
+class Content(models.Model):
+    module = models.ForeignKey(Module, 
+                                related_name='contents',
+                                on_delete= models.CASCADE )
+    content_type = models.ForeignKey(ContentType, 
+                                    on_delete=models.CASCADE,
+                                    limit_choices_to={'model__in': ( 
+                                        'text',
+                                        'video',
+                                        'image',
+                                        'file')})
+    object_id = models.PositiveIntegerField()
+    item= GenericForeignKey('content_type', 'object_id')
+
+    
+
+
     
