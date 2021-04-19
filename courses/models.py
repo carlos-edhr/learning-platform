@@ -11,7 +11,7 @@ class Subject(models.Model):
     def __str__(self):
         return self.title
     
-class Course(Models.Model):
+class Course(models.Model):
     owner = models.ForeignKey(User, 
                             related_name='courses_created', 
                             on_delete=models.CASCADE)
@@ -35,3 +35,7 @@ class Module(models.Model):
                                 on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title 
+    
