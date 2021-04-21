@@ -78,7 +78,7 @@ class ItemBase(models.Model):
         abstract = True
     
     def __str__(self):
-        return slef.title
+        return self.title
  
 class Text(ItemBase):
     content = models.TextField()
