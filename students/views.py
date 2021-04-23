@@ -4,8 +4,10 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import authenticate, login 
 from django.views.generic.edit import FormView 
-fromdjango.contrib.auth.mixins import LoginRequiredMixin 
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from .forms import CourseEnrollForm 
+
+
 
 class StudentEnrollCourseView(LoginRequiredMixin, FormView):
     course = None
