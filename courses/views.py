@@ -15,7 +15,7 @@ from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from students.forms import CourseEnrollForm
 from .models import Course, Module, Content, Subject
 from .forms import ModuleFormSet
-
+from django.core.cache import cache
 
 class OwnerMixin(object):
     def get_queryset(self):
